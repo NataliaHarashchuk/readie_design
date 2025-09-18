@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/book-info-style.css" />
+    <link rel="stylesheet" href="../css/user-book-info-style.css" />
+    <link rel="stylesheet" href="../css/modal-style.css" />
+    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Harry Potter and the Order of the Phoenix (Book 5) - Info</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-side">
+            <a href="{% url 'toggle_favourite' book_list.pk %}" class="favourite-link">
+                <button class="star-button {% if book_list.favourites %}active{% endif %}"
+                    title="{% if book_list.favourites %}Remove from favourites{% else %}Add to favourites{% endif %}">
+                    <svg class="star-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path class="star-path"
+                            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z">
+                        </path>
+                    </svg>
+                </button>
+            </a>
+
+            <div class="background-blur"
+                style="background-image: url('https://media.harrypotterfanzone.com/order-of-the-phoenix-us-childrens-edition.jpg');">
+            </div>
+
+            <div class="book-cover-container">
+                <img src="https://media.harrypotterfanzone.com/order-of-the-phoenix-us-childrens-edition.jpg"
+                    alt="book cover" class="book-cover-img">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="book-info-container">
+
+                <header class="user-book-info-header">
+                    <h1>Harry Potter and the Order of the Phoenix (Book 5)</h1>
+                    <button class="close-button" aria-label="Close" onclick="history.back()"></button>
+                    <div class="vertical-line"></div>
+                    <div class="pages-status-info">
+                        <p>Status: Reading</p>
+                        <p>Pages read: 120</p>
+                    </div>
+                </header>
+
+                <div class="action-buttons">
+                    <button class="icon-button status-button" data-bs-toggle="modal" data-bs-target="#editModal1"
+                        title="Change Book Status">
+                        <i class="fas fa-tasks"></i>
+                    </button>
+                    <button class="icon-button pages-button" data-bs-toggle="modal" data-bs-target="#editPagesModal1"
+                        title="Change Pages Read">
+                        <i class="fas fa-bookmark"></i>
+                    </button>
+                    <button class="icon-button remove-button" data-bs-toggle="modal" data-bs-target="#deleteModal1"
+                        title="Remove from List">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+
+                <div class="book-details-wrapper">
+                    <div class="book-details">
+                        <div class="detail-pair">
+                            <p class="detail-label">Authors:</p>
+                            <div class="detail-value">
+                                <p>Rowling, J.K.</p>
+                            </div>
+                        </div>
+                        <div class="detail-pair">
+                            <p class="detail-label">Published:</p>
+                            <div class="detail-value scrollable-value">
+                                <p>2015</p>
+                            </div>
+                        </div>
+                        <div class="detail-pair">
+                            <p class="detail-label">Number of pages:</p>
+                            <div class="detail-value scrollable-value">
+                                <p>870</p>
+                            </div>
+                        </div>
+                        <div class="detail-pair">
+                            <p class="detail-label">Rating:</p>
+                            <div class="detail-value scrollable-value">
+                                <p>4.5/5.0</p>
+                            </div>
+                        </div>
+                        <div class="detail-pair">
+                            <p class="detail-label">ISBN-13:</p>
+                            <div class="detail-value scrollable-value">
+                                <p>9780439358071</p>
+                            </div>
+                        </div>
+                        <div class="detail-pair">
+                            <p class="detail-label">ISBN-10:</p>
+                            <div class="detail-value scrollable-value">
+                                <p>0439358078</p>
+                            </div>
+                        </div>
+                        <div class="detail-pair">
+                            <p class="detail-label">Categories:</p>
+                            <div class="detail-value scrollable-value">
+                                <p>Juvenile Fiction</p>
+                            </div>
+                        </div>
+                        <div class="detail-pair">
+                            <p class="detail-label">Description:</p>
+                            <div class="detail-value book-description">
+                                <p>
+                                    In Harry Potter and the Order of the Phoenix, Lord Voldemort has returned to the
+                                    Wizarding world, presenting a threat that neither the magical government nor the
+                                    authorities at Hogwarts can stop. In response to his reappearance, Dumbledore
+                                    reactivates the Order of the Phoenix, a secret society which works to defeat the
+                                    Dark Lord's minions and protect his targets—especially Harry Potter. But Harry
+                                    doesn’t want to be protected. Even as the Ministry of Magic denies his claims, The
+                                    Daily Prophet discredits him, and even Dumbledore won’t look him in the eye, Harry
+                                    grows more and more determined to fight his lifelong enemy Voldemort—if only he had
+                                    the “weapon” the Order is guarding.
+                                    In the meantime, he visits his godfather at his ghoulish London home, Grimmauld
+                                    Place, and learns more about Voldemort’s deep reach into Wizarding history and the
+                                    Wizarding world.
+                                    Back at Hogwarts, Harry must deal with a Defense Against the Dark Arts teacher with
+                                    a personality like poisoned honey; a surprising new member of the Gryffindor
+                                    Quidditch team; the possibility of his first real romance; and the looming nightmare
+                                    of the Ordinary Wizarding Level exams.
+                                    He’s haunted by dreams of a heavy door at the end of a silent corridor, and a vision
+                                    of his father and the young Severus Snape that changes everything he thought he knew
+                                    about them.
+                                    Even the joy of working with "Dumbledore's Army" - a group of Hogwarts students
+                                    dedicated to defeating Voldemort - can't dispel the gathering darkness. Soon Harry
+                                    will discover the true depth and strength of his friends; their boundless loyalty
+                                    and unbearable sacrifices. His fate depends on them all.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="editModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <form method="post">
+                <input type="hidden" name="action_type" value="change_status">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Status</h5>
+                    </div>
+                    <div class="modal-body">
+                          <label for="list-select">Choose status:</label>
+                        <select id="list-select" name="book_list" class="form-control">
+                            <option value="">-- Select a status --</option>
+                            <option value="reading">Reading</option>
+                            <option value="completed">Completed</option>
+                            <option value="wishlist">Wishlist</option>
+                            <option value="favourites">Favourites</option>
+                            <option value="abandoned">Abandoned</option>
+                        </select>                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editPagesModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <form method="post">
+                <input type="hidden" name="action_type" value="change_pages">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Pages</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-muted">Book has 870 pages total</p>
+                        <div class="form-group">
+                            <label for="id_pages_read">Pages read:</label>
+                            <input type="number" name="pages_read" id="id_pages_read" class="form-control"
+                                value="0" min="0" max="870">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <form method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm Deletion</h5>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to remove <strong>"Harry Potter and the Order of the Phoenix (Book 5)"</strong> from your list?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Yes, Delete</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

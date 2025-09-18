@@ -1,0 +1,204 @@
+:root {
+    --color-primary: #2c2c2c;
+    --color-primary-hover: #1e1e1e;
+    --color-text: #1e1e1e;
+    --color-text-light: #b3b3b3;
+    --color-background: #f2f0ef;
+    --color-white: #ffffff;
+    --color-border: #d9d9d9;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+    --radius: 8px;
+    --radius-pill: 30px;
+    --font-family: "Inter", Helvetica, sans-serif;
+    --font-size: 18px;
+    --line-height: 1.4;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    color: var(--color-text);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: var(--color-background);
+}
+
+body {
+    background-image: url("../images/books_blurry.png");
+    background-size: cover;
+    background-position: center;
+}
+
+a {
+    color: var(--color-text);
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.profile-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(223, 201, 176, 0.4);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.profile-content {
+    width: 100%;
+    max-width: 550px;
+    padding: 0 20px;
+    z-index: 3;   
+    margin: 0 auto; 
+}
+
+.profile-card {
+    background-color: #f2f0ef;
+    border-radius: var(--radius-pill);
+    padding: 40px var(--space-xl) 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 450px;
+    max-height: 550px;
+    margin: 0 auto;
+}
+
+.profile-image {
+    margin-bottom: 30px;
+}
+
+.profile-image-container {
+    width: 250px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    font-size: 3rem;
+    color: #555;
+}
+
+.profile-name {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+.profile-email {
+    color: var(--color-primary);
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.profile-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    max-width: 350px;
+}
+
+.profile-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.profile-button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.burger-menu-container {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+}
+
+.burger-menu {
+    width: 30px;
+    height: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        padding: var(--space-lg);
+    }
+
+    .profile-image {
+        margin-bottom: 20px;
+    }
+
+    .profile-image-container {
+        width: 175px;
+    }
+
+    .avatar-placeholder {
+        font-size: 60px;
+    }
+
+    .profile-name {
+        font-size: 32px;
+    }
+
+    .profile-button{
+        width: 90%;
+    }
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/login-register.css" />
+    <link rel="icon" href="../assets/images/favicon.png'" type="image/x-icon">
+    <title>Readie - Sign Up</title>
+</head>
+
+<body>
+    <div class='container'>
+        <div class="left-side">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo.png" alt="logo">
+            </a>
+        </div>
+        <div class="right-side">
+            <div class="form-container">
+                <h1>Sign Up</h1>
+                <form class="form" method="post">
+
+                    <div class="input-field">
+                        <label for="id_email" class="label">Email</label>
+                        <input type="email" name="email" id="id_email" class="input" placeholder="Enter your email"
+                            required value="">
+                        <div class="errorlist error"> </div>
+
+                    </div>
+                    <div class="input-field">
+                        <label for="id_password" class="label">Password</label>
+                        <input type="password" name="password" id="id_password" class="input"
+                            placeholder="Enter your password" required value="{{ form.data.password|default:'' }}">
+                        <div class="errorlist error"> </div>
+                    </div>
+                    <div class="input-field" id="confirm-password-container">
+                        <label for="id_confirm_password" class="label">Confirm Password</label>
+                        <input type="password" name="confirm_password" id="id_confirm_password" class="input"
+                            placeholder="Confirm your password" value="{{ form.data.confirm_password|default:'' }}">
+                        <div id="password-match-error" class="errorlist error password-mismatch-error"
+                            style="display: none;">
+                            Passwords do not match
+                        </div>
+
+                        <div class="errorlist error confirm-password-errors"> </div>
+                    </div>
+                    <div id="form-level-errors"></div>
+
+                    <div class="error"> </div>
+
+                    <a href="./user_name.html" class="form-button">Sign Up</a>
+                    <a href="./login.html" class="form-link">Already have an account? Log in</a>
+                </form>
+                <div class="socials-container">
+                    <h3>Follow us</h3>
+                    <ul class="socials-list">
+                        <li class="social instagram"><a href="#"></a></li>
+                        <li class="social telegram"><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    const passwordInput = document.getElementById('id_password');
+    const confirmPasswordInput = document.getElementById('id_confirm_password');
+    const confirmPasswordContainer = document.getElementById('confirm-password-container');
+    const passwordMatchError = document.getElementById('password-match-error');
+    const signupButton = document.getElementById('signup-button');
+
+    function checkPasswordsMatch() {
+        if (passwordInput.value && confirmPasswordInput.value) {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                passwordMatchError.style.display = 'block';
+                signupButton.disabled = true;
+                signupButton.classList.add('button-disabled');
+                return false;
+            } else {
+                passwordMatchError.style.display = 'none';
+                signupButton.disabled = false;
+                signupButton.classList.remove('button-disabled');
+                return true;
+            }
+        }
+        return true;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const hasErrors = document.querySelectorAll('.errorlist').length > 0;
+        const hasConfirmPasswordErrors = document.querySelector('#confirm-password-container .errorlist') !== null;
+        const hasNonFieldErrors = document.querySelector('form > .error') !== null;
+
+        if (passwordInput.value) {
+            confirmPasswordContainer.classList.add('show');
+            checkPasswordsMatch();
+        } else {
+            confirmPasswordContainer.classList.remove('show');
+
+            if (hasConfirmPasswordErrors) {
+                const errorElements = document.querySelectorAll('#confirm-password-container .errorlist');
+                const formElement = document.querySelector('.form');
+
+                let formLevelErrorContainer = document.getElementById('form-level-errors');
+                if (!formLevelErrorContainer) {
+                    formLevelErrorContainer = document.createElement('div');
+                    formLevelErrorContainer.id = 'form-level-errors';
+                    formElement.insertBefore(formLevelErrorContainer, signupButton);
+                }
+
+                errorElements.forEach(function (errorElement) {
+                    const clonedError = errorElement.cloneNode(true);
+                    clonedError.classList.add('form-level-error');
+                    formLevelErrorContainer.appendChild(clonedError);
+
+                    errorElement.style.display = 'none';
+                });
+            }
+        }
+    });
+
+    passwordInput.addEventListener('input', function () {
+        if (this.value.length > 0) {
+            confirmPasswordContainer.classList.add('show');
+            checkPasswordsMatch();
+        } else {
+            confirmPasswordContainer.classList.remove('show');
+            passwordMatchError.style.display = 'none';
+            signupButton.disabled = false;
+            signupButton.classList.remove('button-disabled');
+        }
+    });
+
+    confirmPasswordInput.addEventListener('input', function () {
+        checkPasswordsMatch();
+    });
+
+    document.querySelector('.form').addEventListener('submit', function (event) {
+        if (passwordInput.value && confirmPasswordInput.value) {
+            if (!checkPasswordsMatch()) {
+                event.preventDefault();
+            }
+        }
+    });
+</script>

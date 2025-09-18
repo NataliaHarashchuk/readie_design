@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change account info</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/change-info-style.css" />
+    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <main class="change-info-page">
+
+        <div class="change-info-card">
+            <button class="close-button" aria-label="Close" onclick="history.back()"></button>
+            <form class="change-info-form" method="post">
+                <h1 class="change-info-heading">Change account info</h1>
+
+                <div class="input-field">
+                    <label for="id_email" class="label">Email</label>
+                    <input type="email" name="email" id="id_email" class="input" value="useremail@gmail.com"
+                        placeholder="user@example.com" />
+                </div>
+
+                <div class="input-field">
+                    <label for="id_name" class="label">Name</label>
+                    <input type="text" name="name" id="id_name" class="input" value="User" placeholder="Name" />
+                </div>
+
+                <div class="input-field">
+                    <label for="id_old_password" class="label">Old password</label>
+                    <input type="password" name="old_password" id="id_old_password" class="input"
+                        placeholder="Old password" />
+                </div>
+
+                <div class="input-field">
+                    <label for="id_new_password" class="label">New password</label>
+                    <input type="password" name="new_password" id="id_new_password" class="input"
+                        placeholder="New password" />
+                </div>
+
+                <div class="input-field" id="confirm-new-password-container">
+                    <label for="id_confirm_new_password" class="label">Confirm new password</label>
+                    <input type="password" name="confirm_new_password" id="id_confirm_new_password" class="input"
+                        placeholder="Confirm new password" />
+                </div>
+
+                <div id="password-match-error" class="error hidden">
+                    New passwords don't match.
+                </div>
+
+
+                <div class="change-info-buttons">
+                    <a href="./profile.html" class="change-info-button">Confirm</a>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+    <script src="../js/change_password.js"></script>
+</body>
+
+</html>
