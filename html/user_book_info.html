@@ -18,9 +18,8 @@
 <body>
     <div class="container">
         <div class="left-side">
-            <a href="{% url 'toggle_favourite' book_list.pk %}" class="favourite-link">
-                <button class="star-button {% if book_list.favourites %}active{% endif %}"
-                    title="{% if book_list.favourites %}Remove from favourites{% else %}Add to favourites{% endif %}">
+            <a href="#" class="favourite-link">
+                <button class="star-button" id="starButton" title="Add to favourites">
                     <svg class="star-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path class="star-path"
                             d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z">
@@ -156,7 +155,7 @@
                         <h5 class="modal-title">Edit Status</h5>
                     </div>
                     <div class="modal-body">
-                          <label for="list-select">Choose status:</label>
+                        <label for="list-select">Choose status:</label>
                         <select id="list-select" name="book_list" class="form-control">
                             <option value="">-- Select a status --</option>
                             <option value="reading">Reading</option>
@@ -164,7 +163,7 @@
                             <option value="wishlist">Wishlist</option>
                             <option value="favourites">Favourites</option>
                             <option value="abandoned">Abandoned</option>
-                        </select>                        
+                        </select>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
@@ -187,8 +186,8 @@
                         <p class="text-muted">Book has 870 pages total</p>
                         <div class="form-group">
                             <label for="id_pages_read">Pages read:</label>
-                            <input type="number" name="pages_read" id="id_pages_read" class="form-control"
-                                value="0" min="0" max="870">
+                            <input type="number" name="pages_read" id="id_pages_read" class="form-control" value="0"
+                                min="0" max="870">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -208,7 +207,8 @@
                         <h5 class="modal-title">Confirm Deletion</h5>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to remove <strong>"Harry Potter and the Order of the Phoenix (Book 5)"</strong> from your list?
+                        Are you sure you want to remove <strong>"Harry Potter and the Order of the Phoenix (Book
+                            5)"</strong> from your list?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Yes, Delete</button>
@@ -219,6 +219,7 @@
         </div>
     </div>
 
+    <script src="../js/star_favourite.js"></script>
 </body>
 
 </html>
